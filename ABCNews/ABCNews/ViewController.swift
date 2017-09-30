@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-
+    var newsModel : NewsModel = NewsModel()
     @IBOutlet weak var collectionViewNews: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,8 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         
         let layout = UICollectionViewFlowLayout()
         DataProvider.sharedProvider.getNewsData(target: self) { (news, error) in
+            self.newsModel = news
+            self.collectionViewNews.reloadData()
             
         }
 //        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
@@ -59,13 +61,14 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return newsModel.news.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : CustomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
-        cell.labelTitle.text = "122";
-        cell.labelDescription.text = "2222"
+        let newsParser = newsModel.news[indexPath.row] as! NewsParserModel
+        cell.labelTitle.text = newsParser.title
+        cell.labelDescription.text = newsParser.descriptions
         return cell
     }
 
