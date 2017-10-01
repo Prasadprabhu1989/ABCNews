@@ -118,11 +118,56 @@
                     <connections>
                         <outlet property="collectionViewNews" destination="3UI-z0-U6F" id="5wl-Ox-rBf"/>
                         <outlet property="loadingIndicator" destination="tzF-DS-RIn" id="ZQX-mE-WaI"/>
+                        <segue destination="gCV-Ie-wrc" kind="show" identifier="DetailSegue" id="VYT-8E-zCi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="MvZ-yK-mEO">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="gCV-Ie-wrc" customClass="DetailViewController" customModule="ABCNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SBd-ol-zwc"/>
+                        <viewControllerLayoutGuide type="bottom" id="ze6-Qd-Eui"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Enn-PO-tAr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpK-Ac-pjf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.023529411760000001" green="0.1960784314" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gCV-Ie-wrc" id="ZF2-UA-GQh"/>
+                                </connections>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vnP-Ds-vzn">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.61960784310000006" green="0.87450980389999999" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xpK-Ac-pjf" firstAttribute="leading" secondItem="Enn-PO-tAr" secondAttribute="leading" id="46k-kC-W3c"/>
+                            <constraint firstItem="vnP-Ds-vzn" firstAttribute="centerX" secondItem="Enn-PO-tAr" secondAttribute="centerX" id="CBW-VL-W1i"/>
+                            <constraint firstItem="xpK-Ac-pjf" firstAttribute="top" secondItem="SBd-ol-zwc" secondAttribute="bottom" id="P4R-tD-g4J"/>
+                            <constraint firstItem="vnP-Ds-vzn" firstAttribute="centerY" secondItem="Enn-PO-tAr" secondAttribute="centerY" id="mF8-su-raz"/>
+                            <constraint firstAttribute="trailing" secondItem="xpK-Ac-pjf" secondAttribute="trailing" id="v78-jV-QFc"/>
+                            <constraint firstItem="ze6-Qd-Eui" firstAttribute="top" secondItem="xpK-Ac-pjf" secondAttribute="bottom" id="voP-yZ-GSz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="vnP-Ds-vzn" id="SV0-yq-Tp0"/>
+                        <outlet property="webViewNews" destination="xpK-Ac-pjf" id="ro9-3L-TGo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y3p-Fz-YFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1898" y="212"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s8s-ez-iLJ">

@@ -75,6 +75,16 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         cell.newsModel = newsParser
         return cell
     }
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "DetailSegue", sender: indexPath)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = sender as! IndexPath
+        let detailController = segue.destination as! DetailViewController
+        let newsParserModel : NewsParserModel = newsModel.news[(indexPath as AnyObject).row] as! NewsParserModel
+        detailController.newsParserModel = newsParserModel
+        
+        
+    }
 }
 

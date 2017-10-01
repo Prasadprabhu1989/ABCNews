@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F4C76B81F8115E100376F7D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C76B71F8115E100376F7D /* DetailViewController.swift */; };
 		5F8D87D61F7F58620054C351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D87D51F7F58620054C351 /* AppDelegate.swift */; };
 		5F8D87D81F7F58620054C351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D87D71F7F58620054C351 /* ViewController.swift */; };
 		5F8D87DB1F7F58620054C351 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8D87D91F7F58620054C351 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F4C76B71F8115E100376F7D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5F8D87D21F7F58620054C351 /* ABCNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABCNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8D87D51F7F58620054C351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F8D87D71F7F58620054C351 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				5F8D880B1F7FAAF90054C351 /* ABCNews-Bridging-Header.h */,
 				5F8D880F1F7FBA9A0054C351 /* DownloadManager.swift */,
 				5F8D88111F7FBC210054C351 /* ABOperation.swift */,
+				5F4C76B71F8115E100376F7D /* DetailViewController.swift */,
 			);
 			path = ABCNews;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				5F8D880E1F7FAAFA0054C351 /* Reachability.m in Sources */,
 				5F8D88121F7FBC210054C351 /* ABOperation.swift in Sources */,
 				5F8D88081F7FA7670054C351 /* DataProvider.swift in Sources */,
+				5F4C76B81F8115E100376F7D /* DetailViewController.swift in Sources */,
 				5F8D87D61F7F58620054C351 /* AppDelegate.swift in Sources */,
 				5F8D88061F7F5DE90054C351 /* Constant.swift in Sources */,
 			);
@@ -554,6 +558,7 @@
 				5F8D87FC1F7F58620054C351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F8D87FD1F7F58620054C351 /* Build configuration list for PBXNativeTarget "ABCNewsTests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +567,7 @@
 				5F8D87FF1F7F58620054C351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F8D88001F7F58620054C351 /* Build configuration list for PBXNativeTarget "ABCNewsUITests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +576,7 @@
 				5F8D88021F7F58620054C351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
