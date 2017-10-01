@@ -27,15 +27,7 @@ class DataProvider {
                     
                     newsModel = newsModel.setArray(arr: arr)
                     withCompletion(newsModel,[:])
-                    
-//                    var news = [NewsModel]()
-//                    for dict in arr{
-//                        var newsModel = NewsModel()
-//                        newsModel = newsModel.setArray(dict: dict)
-//                        news.append(newsModel)
-//                        
-////                        newsModel = newsModel.initWithDict(dict: dict)
-//                    }
+
                     
                 }
                 catch{

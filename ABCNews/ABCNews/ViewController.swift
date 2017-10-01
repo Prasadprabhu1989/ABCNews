@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     var newsModel : NewsModel = NewsModel()
     @IBOutlet weak var collectionViewNews: UICollectionView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        CGFloat width = screenSize.size.width/2;
@@ -22,10 +24,13 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
 //        self.collectionViewFav.collectionViewLayout = layout;
         let screenSize = UIScreen.main.bounds
         let width = screenSize.size.width/2.1
-        
+        loadingIndicator.hidesWhenStopped = false
+        loadingIndicator.startAnimating()
+        collectionViewNews.isHidden = true
         let layout = UICollectionViewFlowLayout()
-        DataProvider.sharedProvider.getNewsData(target: self) { (news, error) in
+        DataProvider.sharedProvider.getNewsData(target: self) { [unowned self](news, error) in
             self.newsModel = news
+            self.collectionViewNews.isHidden = false
             self.collectionViewNews.reloadData()
             
         }
@@ -42,7 +47,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         let padding : CGFloat =  10
         let collectionViewSize = collectionView.frame.size.width - (padding)
         
-        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
+        return CGSize(width: collectionViewSize/2, height: collectionView.frame.size.height/1.9)
         
     }
     
@@ -67,8 +72,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : CustomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
         let newsParser = newsModel.news[indexPath.row] as! NewsParserModel
-        cell.labelTitle.text = newsParser.title
-        cell.labelDescription.text = newsParser.descriptions
+        cell.newsModel = newsParser
         return cell
     }
 
