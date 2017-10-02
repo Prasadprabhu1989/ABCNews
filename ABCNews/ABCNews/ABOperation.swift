@@ -58,6 +58,38 @@ class ABOperation: Operation ,URLSessionDataDelegate{
         downloadBlocks!(self,nil)
     }
     func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+        print("error\(String(describing: error))")
         downloadBlocks!(self,error)
+        
+    }
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        
+        downloadBlocks!(self,error)
+    }
+}
+extension ABOperation{
+    enum error: Error {
+        case noData
+        
+        case noNetwork(reason: String)
+        case requestFailed(reason : String)
+    }
+}
+
+  
+
+
+extension ABOperation.error : LocalizedError{
+    var errorDescription : String?{
+        switch self {
+        case .noData:
+            return "No Data Found"
+        case .noNetwork(let reason):
+            return reason
+        case .requestFailed(let reason):
+            return reason
+       
+            
+        }
     }
 }

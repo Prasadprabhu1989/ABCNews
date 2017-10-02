@@ -16,6 +16,8 @@ class CustomCell: UICollectionViewCell {
     @IBOutlet weak var imageViewNews: UIImageView!
     var newsModel : NewsParserModel?{
         didSet{
+             self.loadingIndicator.startAnimating()
+            self.loadingIndicator.hidesWhenStopped = true
             imageViewNews.image = UIImage(named: "abcnews")
             loadImage(newsModel: newsModel!) { [unowned self](data, error) in
 //                if let err = error{

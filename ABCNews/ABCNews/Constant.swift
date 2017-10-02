@@ -21,4 +21,12 @@ class Constant {
 class TSCWSErrorCodes: NSObject {
     static let NoInternetWork = 100
 }
+enum  errorCode : Int {
+   case NoInternet = -1009
+    
+    
+}
 
+enum CompassPoint: Int {
+    case North = 100, South, East, West
+}
